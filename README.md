@@ -14,7 +14,7 @@ My best neural network so far, currently under development. She is also my first
     * Examples include: `epochs`, `learn_rate`, `decay`, and progress `checks` that print as you train
 * **Training Data** - Because, y'know, it's sort of essential... it can't really teach itself something it doesn't know!
 
-Some other neat features include a single-key control during training for `p`ausing, `r`esuming and `q`uitting training.
+Some other neat features include training updates, with info such as the Epoch, dynamic Learn Rate, and MSE.
 
 ## Node - User-Friendly
 My first network to communicate with the user! Node was also my first poke at trying to write a network program myself, although I still ended up needing some help when it came to writing the code itself.

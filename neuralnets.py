@@ -80,7 +80,7 @@ class dawn:
         
         if method == "backprop":
 
-            print(f"[dawn.teach] LR: {learn_rate}, {method}, EP:{epochs}, DC:{decay}")
+            print(f"[neuralnets/neuralnets.dawn.teach] LR: {learn_rate}, {method}, EP:{epochs}, DC:{decay}")
             current_rate = learn_rate
 
             for epoch in range(epochs):
@@ -112,7 +112,7 @@ class dawn:
                 current_rate *= decay
 
                 if epoch % (epochs // checks) == 0:
-                    print(f"[dawn.teach] {round(100*(epoch/epochs)):02}%, Ep: {epoch:0{len(str(epochs))}d}, LR: {current_rate:.3f}, MSE: {mse:.6f}")
+                    print(f"[neuralnets/neuralnets.dawn.teach] {round(100*(epoch/epochs)):02}%, Ep: {epoch:0{len(str(epochs))}d}, LR: {current_rate:.3f}, MSE: {mse:.6f}")
 
         elif method == "reinforce":
             pass # ADD REINFORCEMENT HERE!
@@ -207,7 +207,7 @@ class byte:
             limit = np.sqrt(6 / (layer_sizes[i] + layer_sizes[i+1]))
             w = np.random.uniform(-limit, limit, (layer_sizes[i], layer_sizes[i+1]))
             self.weights.append(w)
-        print("[nnet] Byte Setup Complete!")
+        print("[neuralnets/neuralnets.byte.__init__] Byte Setup Complete!")
 
     def sigmoid(self, x):
         x = np.clip(x, -500, 500)
@@ -223,7 +223,7 @@ class byte:
         return layer
 
     def train(self, x, y, epochs, learn_rate, checks):
-        print("[nnet] Byte Training underway...")
+        print("[neuralnets/neuralnets.byte.train] Byte Training underway...")
         for epoch in range(epochs):
             layers = [x]
             for w in self.weights:
@@ -239,6 +239,6 @@ class byte:
                 self.weights[i] += layers[i].T.dot(deltas[i]) * learn_rate
             if epoch % (epochs // checks) == 0:
                 mse = np.mean((y - layers[-1])**2)
-                print(f"[nnet] {round(100 * (epoch / epochs))}%, Epoch: {epoch} , MSE: {mse:.6f}")
-        print("[nnet] Byte Training Complete!")
+                print(f"[neuralnets/neuralnets.byte.train] {round(100 * (epoch / epochs))}%, Epoch: {epoch} , MSE: {mse:.6f}")
+        print("[neuralnets/neuralnets.byte.train] Byte Training Complete!")
         print("")
